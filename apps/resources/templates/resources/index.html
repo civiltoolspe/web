@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block title %}Recursos y normas{% endblock %}
+{% block content %}
+<h2>Recursos y normas (resúmenes)</h2>
+<ul>
+  {% for n in normas %}
+    <li><strong>{{ n.sigla }}</strong>: {{ n.descripcion }}</li>
+  {% endfor %}
+</ul>
+{% endblock %}

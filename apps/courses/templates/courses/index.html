@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block title %}Cursos y microcursos{% endblock %}
+{% block content %}
+<h2>Cursos y microcursos</h2>
+<ul>
+  {% for c in microcursos %}
+    <li><a class="link-secondary disabled" href="{{ c.link }}">{{ c.titulo }}</a> <span class="badge bg-secondary">próx.</span></li>
+  {% endfor %}
+</ul>
+{% endblock %}
