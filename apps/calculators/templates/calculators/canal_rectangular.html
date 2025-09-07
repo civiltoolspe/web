@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block title %}Canal rectangular · Manning{% endblock %}
+{% block content %}
+<h2>Canal rectangular – Fórmula de Manning</h2>
+<form method="post" class="row g-3">
+  {% csrf_token %}
+  <div class="col-md-3">
+    <label class="form-label">n (Manning)</label>
+    <input name="n" step="0.0001" type="number" class="form-control" placeholder="0.013" required>
+  </div>
+  <div class="col-md-3">
+    <label class="form-label">S (pendiente)</label>
+    <input name="S" step="0.000001" type="number" class="form-control" placeholder="0.001" required>
+  </div>
+  <div class="col-md-3">
+    <label class="form-label">b (m)</label>
+    <input name="b" step="0.0001" type="number" class="form-control" placeholder="2.0" required>
+  </div>
+  <div class="col-md-3">
+    <label class="form-label">y (m)</label>
+    <input name="y" step="0.0001" type="number" class="form-control" placeholder="1.0" required>
+  </div>
+  <div class="col-12">
+    <button class="btn btn-primary" type="submit">Calcular</button>
+  </div>
+</form>
+
+{% if resultado %}
+  {% if resultado.error %}
+    <div class="alert alert-danger mt-3">{{ resultado.error }}</div>
+  {% else %}
+    <div class="card mt-4">
+      <div class="card-body">
+        <h5 class="card-title">Resultados</h5>
+        <ul class="mb-0">
+          <li>Área A = {{ resultado.A|floatformat:4 }} m²</li>
+          <li>Perímetro mojado P = {{ resultado.P|floatformat:4 }} m</li>
+          <li>Radio hidráulico R = {{ resultado.R|floatformat:6 }} m</li>
+          <li>Caudal Q = {{ resultado.Q|floatformat:6 }} m³/s</li>
+        </ul>
+      </div>
+    </div>
+  {% endif %}
+{% endif %}
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %}Plantillas{% endblock %}
+{% block content %}
+<h2>Plantillas descargables</h2>
+<div class="row">
+  {% for t in templates %}
+  <div class="col-md-4">
+    <div class="card mb-3">
+      <div class="card-body">
+        <h5 class="card-title">{{ t.nombre }}</h5>
+        <p class="card-text">{{ t.descripcion }}</p>
+        <a href="{{ t.archivo }}" class="btn btn-outline-primary disabled">Descargar (próximamente)</a>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{% endblock %}
