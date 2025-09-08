@@ -27,3 +27,4 @@ Accede a http://127.0.0.1:8000/
 - blog: artículos técnicos.
 - resources: resúmenes de normas y guías.
 - community: foro/casos prácticos (placeholder).
+
